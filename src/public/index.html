@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Demo 🚀</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <h1>GitHub Actions Demo</h1>
+            </div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span id="serverStatus">Connected</span>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Hello from Node.js GitHub Actions Demo!</h2>
+                <p class="subtitle">A simple Node.js server with a beautiful frontend</p>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="fetchMessage()">
+                        <span>📨</span> Fetch Message
+                    </button>
+                    <button class="btn btn-secondary" onclick="testAPI()">
+                        <span>🔌</span> Test API
+                    </button>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <div class="floating-icons">
+                    <span>⚡</span>
+                    <span>🔥</span>
+                    <span>✨</span>
+                    <span>🚀</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Response Section -->
+        <section class="response-section" id="responseSection" style="display: none;">
+            <div class="response-card">
+                <div class="response-header">
+                    <span class="response-icon">📬</span>
+                    <h3>Server Response</h3>
+                    <span class="timestamp" id="timestamp"></span>
+                </div>
+                <div class="response-body" id="responseBody">
+                    <div class="response-content">
+                        <pre id="responseOutput">Waiting for response...</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h3>✨ Features</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h4>Node.js Server</h4>
+                    <p>HTTP server built with Node.js core modules</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h4>Beautiful UI</h4>
+                    <p>Modern, responsive design with CSS</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h4>GitHub Actions</h4>
+                    <p>CI/CD pipeline with automated testing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h4>Zero Dependencies</h4>
+                    <p>Pure Node.js - no external packages needed</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with ❤️ for GitHub Actions Demo</p>
+            <div class="footer-links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://nodejs.org" target="_blank">Node.js</a>
+                <a href="#">Documentation</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
