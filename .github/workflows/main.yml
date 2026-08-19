@@ -103,6 +103,6 @@ jobs:
         - name: Build Docker image
           uses: docker/build-push-action@v6
           with:
-            context: .Dockerfile
+            context: ./Dockerfile
             push: false
             tags: nodejs-github-actions-demo:latest
