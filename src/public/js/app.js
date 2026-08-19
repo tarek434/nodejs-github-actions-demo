@@ -1,6 +1,3 @@
-// App state
-let isConnected = true;
-
 // DOM elements
 const responseSection = document.getElementById('responseSection');
 const responseOutput = document.getElementById('responseOutput');
@@ -80,14 +77,13 @@ async function checkHealth() {
         } else {
             updateStatus(false);
         }
-    } catch (error) {
+    } catch {
         updateStatus(false);
     }
 }
 
 // Update server status
 function updateStatus(connected) {
-    isConnected = connected;
     const statusElement = document.getElementById('serverStatus');
     const dotElement = document.querySelector('.status-dot');
     
