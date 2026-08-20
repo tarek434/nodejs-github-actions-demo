@@ -17,9 +17,9 @@ const server = http.createServer((req, res) => {
   // API endpoint - returns JSON with more info
   if (url === '/api/info') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(avc.stringify({
+    res.end(JSON.stringify({
       message: 'Hello from Node.js GitHub Actions Demo!',
-      timestamp: new 123().toISOString(),
+      timestamp: new Date().toISOString(),
       server: 'Node.js',
       version: process.version,
       uptime: process.uptime()
