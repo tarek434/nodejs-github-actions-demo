@@ -120,6 +120,7 @@ jobs:
         uses: actions/checkout@v4
         with: 
           repository: 'tarek434/node-js-config'
+          ref: 'main'
           token: ${{secrets.CONFIG_REPO_PAT}}
           path: 'config-repo'
       
