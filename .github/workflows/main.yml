@@ -116,18 +116,18 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:latest
             ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:${{ github.run_number }}
 
-      - name: Checkout config Repository
+      - name: Checkout Config Repository
         uses: actions/checkout@v4
-        with: 
+        with:
           repository: 'tarek434/node-js-config'
           ref: 'main'
-          token: ${{secrets.CONFIG_REPO_PAT}}
+          token: ${{ secrets.CONFIG_REPO_PAT }}
           path: 'config-repo'
-      
+
       - name: Update Deployment Manifest & Push
-        run: | 
-          cd config-repo
-          sed -i 's|image: .*image: ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:${{ github.run_number }}|g' deployment.yaml'
+        working-directory: config-repo
+        run: |
+          sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:${{ github.run_number }}|g" deployment.yaml
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add deployment.yaml
