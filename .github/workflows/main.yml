@@ -115,3 +115,19 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:latest
             ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:${{ github.run_number }}
+
+      - name: Checkout config Repository
+        uses: actions/checkout@v4
+        with: 
+          repository: 'tarek434/node-js-config'
+          token: ${{secrets.CONFIG_REPO_PAT}}
+          path: 'config-repo'
+      
+      - name: Update Deployment Manifest & Push
+        run: | 
+          cd config-repo
+          sed -i 's|image: .*image: ${{ secrets.DOCKER_USERNAME }}/nodejs-github-actions-demo:${{ github.run_number }}|g' deployment.yaml'
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add deployment.yaml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "ci: update image tag to run #${{ github.run_number }}" && git push origin main)
